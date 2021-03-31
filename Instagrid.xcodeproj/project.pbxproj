@@ -13,6 +13,8 @@
 		403169FB2611F2E900D49863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403169F92611F2E900D49863 /* Main.storyboard */; };
 		403169FD2611F2EA00D49863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 403169FC2611F2EA00D49863 /* Assets.xcassets */; };
 		40316A002611F2EA00D49863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403169FE2611F2EA00D49863 /* LaunchScreen.storyboard */; };
+		40EC5A022614D0C900D74F5D /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40EC5A012614D0C900D74F5D /* ThirstySoftRegular.otf */; };
+		40EC5A052614D0CF00D74F5D /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40EC5A042614D0CF00D74F5D /* Delm-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		403169FC2611F2EA00D49863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		403169FF2611F2EA00D49863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40316A012611F2EA00D49863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40EC5A012614D0C900D74F5D /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		40EC5A042614D0CF00D74F5D /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		403169F22611F2E900D49863 /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
+				40EC59FF2614D0B800D74F5D /* Utils */,
 				403169F32611F2E900D49863 /* AppDelegate.swift */,
 				403169F52611F2E900D49863 /* SceneDelegate.swift */,
 				403169F72611F2E900D49863 /* ViewController.swift */,
@@ -65,6 +70,23 @@
 				40316A012611F2EA00D49863 /* Info.plist */,
 			);
 			path = Instagrid;
+			sourceTree = "<group>";
+		};
+		40EC59FF2614D0B800D74F5D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				40EC5A002614D0BF00D74F5D /* Fonts */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		40EC5A002614D0BF00D74F5D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				40EC5A042614D0CF00D74F5D /* Delm-Medium.otf */,
+				40EC5A012614D0C900D74F5D /* ThirstySoftRegular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +147,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				40316A002611F2EA00D49863 /* LaunchScreen.storyboard in Resources */,
+				40EC5A052614D0CF00D74F5D /* Delm-Medium.otf in Resources */,
 				403169FD2611F2EA00D49863 /* Assets.xcassets in Resources */,
+				40EC5A022614D0C900D74F5D /* ThirstySoftRegular.otf in Resources */,
 				403169FB2611F2E900D49863 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RVW2J6VR8Y;
 				INFOPLIST_FILE = Instagrid/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +321,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.johannpetzold.Instagrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RVW2J6VR8Y;
 				INFOPLIST_FILE = Instagrid/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +341,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.johannpetzold.Instagrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
