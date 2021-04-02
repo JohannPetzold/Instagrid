@@ -13,6 +13,9 @@
 		403169FB2611F2E900D49863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403169F92611F2E900D49863 /* Main.storyboard */; };
 		403169FD2611F2EA00D49863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 403169FC2611F2EA00D49863 /* Assets.xcassets */; };
 		40316A002611F2EA00D49863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403169FE2611F2EA00D49863 /* LaunchScreen.storyboard */; };
+		40D57C0E2617733C000312F6 /* LayoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D57C0D2617733C000312F6 /* LayoutButton.swift */; };
+		40D57C16261778A2000312F6 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D57C15261778A2000312F6 /* LayoutView.swift */; };
+		40D57C1926177916000312F6 /* LayoutImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D57C1826177916000312F6 /* LayoutImageView.swift */; };
 		40EC5A022614D0C900D74F5D /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40EC5A012614D0C900D74F5D /* ThirstySoftRegular.otf */; };
 		40EC5A052614D0CF00D74F5D /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40EC5A042614D0CF00D74F5D /* Delm-Medium.otf */; };
 /* End PBXBuildFile section */
@@ -26,6 +29,9 @@
 		403169FC2611F2EA00D49863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		403169FF2611F2EA00D49863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40316A012611F2EA00D49863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40D57C0D2617733C000312F6 /* LayoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutButton.swift; sourceTree = "<group>"; };
+		40D57C15261778A2000312F6 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
+		40D57C1826177916000312F6 /* LayoutImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutImageView.swift; sourceTree = "<group>"; };
 		40EC5A012614D0C900D74F5D /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		40EC5A042614D0CF00D74F5D /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +47,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40139117261767DB00787953 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				403169F72611F2E900D49863 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		40139118261767E200787953 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				403169F92611F2E900D49863 /* Main.storyboard */,
+				403169FE2611F2EA00D49863 /* LaunchScreen.storyboard */,
+				40D57C0D2617733C000312F6 /* LayoutButton.swift */,
+				40D57C15261778A2000312F6 /* LayoutView.swift */,
+				40D57C1826177916000312F6 /* LayoutImageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		40139119261767E800787953 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4013911A2617680A00787953 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				40316A012611F2EA00D49863 /* Info.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
 		403169E72611F2E900D49863 = {
 			isa = PBXGroup;
 			children = (
@@ -60,14 +101,10 @@
 		403169F22611F2E900D49863 /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
+				40139119261767E800787953 /* Model */,
+				40139118261767E200787953 /* View */,
+				40139117261767DB00787953 /* Controller */,
 				40EC59FF2614D0B800D74F5D /* Utils */,
-				403169F32611F2E900D49863 /* AppDelegate.swift */,
-				403169F52611F2E900D49863 /* SceneDelegate.swift */,
-				403169F72611F2E900D49863 /* ViewController.swift */,
-				403169F92611F2E900D49863 /* Main.storyboard */,
-				403169FC2611F2EA00D49863 /* Assets.xcassets */,
-				403169FE2611F2EA00D49863 /* LaunchScreen.storyboard */,
-				40316A012611F2EA00D49863 /* Info.plist */,
 			);
 			path = Instagrid;
 			sourceTree = "<group>";
@@ -75,6 +112,10 @@
 		40EC59FF2614D0B800D74F5D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				403169F32611F2E900D49863 /* AppDelegate.swift */,
+				403169F52611F2E900D49863 /* SceneDelegate.swift */,
+				403169FC2611F2EA00D49863 /* Assets.xcassets */,
+				4013911A2617680A00787953 /* Plist */,
 				40EC5A002614D0BF00D74F5D /* Fonts */,
 			);
 			path = Utils;
@@ -163,6 +204,9 @@
 			files = (
 				403169F82611F2E900D49863 /* ViewController.swift in Sources */,
 				403169F42611F2E900D49863 /* AppDelegate.swift in Sources */,
+				40D57C16261778A2000312F6 /* LayoutView.swift in Sources */,
+				40D57C0E2617733C000312F6 /* LayoutButton.swift in Sources */,
+				40D57C1926177916000312F6 /* LayoutImageView.swift in Sources */,
 				403169F62611F2E900D49863 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -295,7 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -312,8 +356,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RVW2J6VR8Y;
-				INFOPLIST_FILE = Instagrid/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				INFOPLIST_FILE = Instagrid/Utils/Plist/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,8 +376,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RVW2J6VR8Y;
-				INFOPLIST_FILE = Instagrid/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				INFOPLIST_FILE = Instagrid/Utils/Plist/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
