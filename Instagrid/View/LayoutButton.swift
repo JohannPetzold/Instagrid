@@ -11,15 +11,15 @@ class LayoutButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initialize()
+        setup()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        initialize()
+        setup()
     }
     
-    private func initialize() {
+    private func setup() {
         self.setBackgroundImage(UIImage(named: "Layout \(self.tag + 1)"), for: .normal)
         if self.tag == 0 {
             self.isSelected = true

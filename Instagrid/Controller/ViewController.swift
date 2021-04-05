@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         imagePicker.delegate = self
         
         layoutView.changeLayout(tag: 0)
+        
         var tapGestures: [UITapGestureRecognizer] = []
         for _ in 0...3 {
             tapGestures.append(UITapGestureRecognizer(target: self, action: #selector(didTap(_:))))
@@ -28,14 +29,36 @@ class ViewController: UIViewController {
         layoutView.addTapGestures(tapGestures: tapGestures)
     }
     
+    override func viewWillLayoutSubviews() {
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(shareLayout(_:)))
+        if UIDevice.current.orientation.isPortrait {
+            swipeGesture.direction = [.up]
+        } else if UIDevice.current.orientation.isLandscape {
+            swipeGesture.direction = [.left]
+        }
+        if let removeGesture = layoutView.gestureRecognizers?.first {
+            layoutView.removeGestureRecognizer(removeGesture)
+        }
+        layoutView.addGestureRecognizer(swipeGesture)
+    }
+    
     @objc func didTap(_ sender: UITapGestureRecognizer) {
-        if let layout = sender.view as? LayoutImageView {
-            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                tag = layout.tag
-                takePicture(source: .photoLibrary)
-            } else {
-                print("DEBUG: Caméra non disponible")
-            }
+        guard let layout = sender.view as? LayoutImageView else { return }
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            tag = layout.tag
+            takePicture(source: .photoLibrary)
+        } else {
+            print("DEBUG: Librairie photo non disponible")
+        }
+    }
+    
+    @objc func shareLayout(_ sender: UISwipeGestureRecognizer) {
+        if layoutView.isLayoutDone() {
+            let imageToShare = [layoutView.createFinalImage()]
+            let activity = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+            present(activity, animated: true, completion: nil)
+        } else {
+            print("DEBUG: Des images sont manquantes")
         }
     }
     

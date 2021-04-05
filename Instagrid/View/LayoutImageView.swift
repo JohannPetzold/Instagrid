@@ -72,4 +72,8 @@ class LayoutImageView: UIView {
             plusImage!.isHidden = false
         }
     }
+    
+    func getLayoutImage() -> UIImage? {
+        return layoutImage?.image
+    }
 }

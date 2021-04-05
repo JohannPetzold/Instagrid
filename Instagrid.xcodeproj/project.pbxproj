@@ -13,6 +13,7 @@
 		403169FB2611F2E900D49863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403169F92611F2E900D49863 /* Main.storyboard */; };
 		403169FD2611F2EA00D49863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 403169FC2611F2EA00D49863 /* Assets.xcassets */; };
 		40316A002611F2EA00D49863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403169FE2611F2EA00D49863 /* LaunchScreen.storyboard */; };
+		40B8F1C4261B4F6800861DA1 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B8F1C3261B4F6800861DA1 /* ExtensionUIImage.swift */; };
 		40D57C0E2617733C000312F6 /* LayoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D57C0D2617733C000312F6 /* LayoutButton.swift */; };
 		40D57C16261778A2000312F6 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D57C15261778A2000312F6 /* LayoutView.swift */; };
 		40D57C1926177916000312F6 /* LayoutImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D57C1826177916000312F6 /* LayoutImageView.swift */; };
@@ -29,6 +30,7 @@
 		403169FC2611F2EA00D49863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		403169FF2611F2EA00D49863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40316A012611F2EA00D49863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40B8F1C3261B4F6800861DA1 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		40D57C0D2617733C000312F6 /* LayoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutButton.swift; sourceTree = "<group>"; };
 		40D57C15261778A2000312F6 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
 		40D57C1826177916000312F6 /* LayoutImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutImageView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		40139119261767E800787953 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				40B8F1C2261B4F5700861DA1 /* Extension */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,6 +110,14 @@
 				40EC59FF2614D0B800D74F5D /* Utils */,
 			);
 			path = Instagrid;
+			sourceTree = "<group>";
+		};
+		40B8F1C2261B4F5700861DA1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				40B8F1C3261B4F6800861DA1 /* ExtensionUIImage.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		40EC59FF2614D0B800D74F5D /* Utils */ = {
@@ -203,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				403169F82611F2E900D49863 /* ViewController.swift in Sources */,
+				40B8F1C4261B4F6800861DA1 /* ExtensionUIImage.swift in Sources */,
 				403169F42611F2E900D49863 /* AppDelegate.swift in Sources */,
 				40D57C16261778A2000312F6 /* LayoutView.swift in Sources */,
 				40D57C0E2617733C000312F6 /* LayoutButton.swift in Sources */,

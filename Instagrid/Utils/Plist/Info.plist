@@ -68,6 +68,8 @@
 		<string>ThirstySoftRegular.otf</string>
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Choisir une photo</string>
+	<string>Choisir une image dans la phototèque</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Accéder aux fichiers pour enregistrer l&apos;image</string>
 </dict>
 </plist>

@@ -23,7 +23,7 @@ class LayoutView: UIView {
     }
     
     private func setup() {
-        //
+        
     }
 
     func changeLayout(tag: Int) {
@@ -45,6 +45,10 @@ class LayoutView: UIView {
         }
     }
     
+    func addImageToLayout(image: UIImage, tag: Int) {
+        layoutImages[tag].addImage(image: image)
+    }
+    
     func addTapGestures(tapGestures: [UITapGestureRecognizer]) {
         if tapGestures.count == layoutImages.count {
             for x in 0..<tapGestures.count {
@@ -53,7 +57,26 @@ class LayoutView: UIView {
         }
     }
     
-    func addImageToLayout(image: UIImage, tag: Int) {
-        layoutImages[tag].addImage(image: image)
+    func isLayoutDone() -> Bool {
+        if layoutImages.filter({ (layoutImageView) -> Bool in
+            return layoutImageView.isHidden == false && layoutImageView.getLayoutImage() == nil
+        }).count == 0 {
+            return true
+        }
+        return false
+    }
+    
+    func createFinalImage() -> UIImage {
+        var finalImage = UIImage.createBackgroundLayout(size: 512)
+        for x in 0..<layoutImages.count {
+            if layoutImages[x].isHidden == false {
+                if let layoutImage = layoutImages[x].getLayoutImage() {
+                    // A FAIRE
+                    let area = CGRect(x: layoutImages[x].frame.minX, y: layoutImages[x].frame.minY, width: layoutImages[x].frame.width, height: layoutImages[x].frame.height)
+                    finalImage = finalImage.mergeWith(topImage: layoutImage, topImageArea: area)
+                }
+            }
+        }
+        return finalImage
     }
 }
