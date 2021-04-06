@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -21,11 +21,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV0-gj-oGK">
-                                <rect key="frame" x="95" y="74" width="200" height="39"/>
+                                <rect key="frame" x="107" y="74" width="200" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="Sqw-pb-SZx"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="yLP-fZ-Lib"/>
@@ -38,33 +38,33 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-A5-0zZ" customClass="LayoutView" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="40" y="202.33333333333337" width="310" height="310"/>
+                                <rect key="frame" x="40" y="202.5" width="334" height="334"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0YL-LK-pe0">
-                                        <rect key="frame" x="15" y="15" width="280" height="280"/>
+                                        <rect key="frame" x="15" y="15" width="304" height="304"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="LW4-ch-BNW">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="132.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="304" height="144.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2M-OO-32h" customClass="LayoutImageView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="132.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="144.5" height="144.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAC-UH-vyF" customClass="LayoutImageView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="147.66666666666663" y="0.0" width="132.33333333333337" height="132.66666666666666"/>
+                                                        <rect key="frame" x="159.5" y="0.0" width="144.5" height="144.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EMk-Fl-LSF">
-                                                <rect key="frame" x="0.0" y="147.66666666666663" width="280" height="132.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="159.5" width="304" height="144.5"/>
                                                 <subviews>
                                                     <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BbB-7m-iAB" customClass="LayoutImageView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="132.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="144.5" height="144.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Auc-zC-odp" customClass="LayoutImageView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="147.66666666666663" y="0.0" width="132.33333333333337" height="132.33333333333334"/>
+                                                        <rect key="frame" x="159.5" y="0.0" width="144.5" height="144.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
@@ -88,10 +88,10 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EvV-Wj-fxD">
-                                <rect key="frame" x="40" y="680" width="310" height="90"/>
+                                <rect key="frame" x="40" y="724" width="334" height="98"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lm4-aI-wKJ" customClass="LayoutButton" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Lm4-aI-wKJ" secondAttribute="height" multiplier="1:1" id="B6J-kq-ntd"/>
                                         </constraints>
@@ -103,7 +103,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luc-iz-Hew" customClass="LayoutButton" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="110" y="0.0" width="90" height="90"/>
+                                        <rect key="frame" x="118" y="0.0" width="98" height="98"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Luc-iz-Hew" secondAttribute="height" multiplier="1:1" id="azk-BS-oUv"/>
                                         </constraints>
@@ -115,7 +115,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRk-De-Qjs" customClass="LayoutButton" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="220" y="0.0" width="90" height="90"/>
+                                        <rect key="frame" x="236" y="0.0" width="98" height="98"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="HRk-De-Qjs" secondAttribute="height" multiplier="1:1" id="0fI-PG-FYV"/>
                                         </constraints>
@@ -131,10 +131,10 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="vertical"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QwL-3K-PRL">
-                                <rect key="frame" x="127.33333333333333" y="153" width="135.66666666666669" height="39.333333333333343"/>
+                                <rect key="frame" x="139.5" y="153" width="135.5" height="39.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="anW-aZ-bH5">
-                                        <rect key="frame" x="60.666666666666671" y="0.0" width="14" height="10"/>
+                                        <rect key="frame" x="60.5" y="0.0" width="14" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="O84-JX-Vli">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="14"/>
@@ -162,7 +162,7 @@
                                         <variation key="heightClass=compact-widthClass=regular" image="Arrow Left"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAW-AZ-6aw">
-                                        <rect key="frame" x="0.0" y="14.999999999999998" width="135.66666666666666" height="24.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="15" width="135.5" height="24.5"/>
                                         <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -317,11 +317,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Arrow Left" width="3.3333332538604736" height="4.6666665077209473"/>
-        <image name="Arrow Up" width="4.6666665077209473" height="3.3333332538604736"/>
-        <image name="Layout 1" width="26.666666030883789" height="26.666666030883789"/>
-        <image name="Layout 2" width="26.666666030883789" height="26.666666030883789"/>
-        <image name="Layout 3" width="26.666666030883789" height="26.666666030883789"/>
-        <image name="Selected" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="Arrow Left" width="3.5" height="4.5"/>
+        <image name="Arrow Up" width="4.5" height="3.5"/>
+        <image name="Layout 1" width="27" height="27"/>
+        <image name="Layout 2" width="27" height="27"/>
+        <image name="Layout 3" width="27" height="27"/>
+        <image name="Selected" width="27" height="27"/>
     </resources>
 </document>

@@ -19,6 +19,7 @@ class LayoutButton: UIButton {
         setup()
     }
     
+    /* Initialise le bouton avec l'image correspondante à son tag */
     private func setup() {
         self.setBackgroundImage(UIImage(named: "Layout \(self.tag + 1)"), for: .normal)
         if self.tag == 0 {

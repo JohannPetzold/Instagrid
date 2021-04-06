@@ -13,14 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var layoutView: LayoutView!
     
     var imagePicker = UIImagePickerController()
-    var tag: Int = 0
+    var imageLayoutTag: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imagePicker.delegate = self
         
-        layoutView.changeLayout(tag: 0)
+        layoutView.changeLayout(layoutType: 0)
         
         var tapGestures: [UITapGestureRecognizer] = []
         for _ in 0...3 {
@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         layoutView.addTapGestures(tapGestures: tapGestures)
     }
     
+    /* Remplace le SwipeGestureRecognizer dés que la vue change son bounds (rotation du device) */
     override func viewWillLayoutSubviews() {
         let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(shareLayout(_:)))
         if UIDevice.current.orientation.isPortrait {
@@ -42,16 +43,18 @@ class ViewController: UIViewController {
         layoutView.addGestureRecognizer(swipeGesture)
     }
     
+    /* Tap pour choisir l'image */
     @objc func didTap(_ sender: UITapGestureRecognizer) {
         guard let layout = sender.view as? LayoutImageView else { return }
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            tag = layout.tag
+            imageLayoutTag = layout.tag
             takePicture(source: .photoLibrary)
         } else {
             print("DEBUG: Librairie photo non disponible")
         }
     }
     
+    /* Swipe pour partager le Layout */
     @objc func shareLayout(_ sender: UISwipeGestureRecognizer) {
         if layoutView.isLayoutDone() {
             let imageToShare = [layoutView.createFinalImage()]
@@ -62,17 +65,20 @@ class ViewController: UIViewController {
         }
     }
     
+    /* Configure UIImagePickerController et l'affiche avec le SourceType souhaité */
     private func takePicture(source: UIImagePickerController.SourceType) {
         imagePicker.sourceType = source
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
     }
     
+    /* Changement du Layout en fonction du bouton */
     @IBAction func chooseLayout(_ sender: UIButton) {
         changeButtonSelected(tag: sender.tag)
-        layoutView.changeLayout(tag: sender.tag)
+        layoutView.changeLayout(layoutType: sender.tag)
     }
     
+    /* Modifie le bouton sélectionné */
     private func changeButtonSelected(tag: Int) {
         for x in 0..<layoutButtons.count {
             if x == tag {
@@ -89,7 +95,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pictureOriginal = info[.originalImage] as? UIImage {
-            layoutView.addImageToLayout(image: pictureOriginal, tag: tag)
+            layoutView.addImageToLayout(image: pictureOriginal, tag: imageLayoutTag)
         }
         picker.dismiss(animated: true, completion: nil)
     }

@@ -27,10 +27,10 @@ class LayoutImageView: UIView {
         setupPlusImage()
     }
     
+    /* Initialisation de layoutImage avec ses contraintes */
     private func setupLayoutImage() {
         layoutImage = UIImageView()
         if layoutImage != nil {
-            layoutImage!.isHidden = true
             layoutImage!.contentMode = .scaleAspectFill
             layoutImage!.clipsToBounds = true
             self.addSubview(layoutImage!)
@@ -41,6 +41,7 @@ class LayoutImageView: UIView {
         }
     }
     
+    /* Initialisation de l'image Plus avec ses contraintes */
     private func setupPlusImage() {
         plusImage = UIImageView()
         if plusImage != nil {
@@ -54,26 +55,69 @@ class LayoutImageView: UIView {
         }
     }
     
+    /* Ajoute le tap gesture */
     func addTapGesture(tapGesture: UITapGestureRecognizer) {
         self.addGestureRecognizer(tapGesture)
     }
     
+    /* Ajoute une image à l'UIImageView et cache le plus */
     func addImage(image: UIImage) {
         if layoutImage != nil && plusImage != nil {
             layoutImage!.image = image
-            layoutImage!.isHidden = false
             plusImage!.isHidden = true
         }
     }
     
-    func hideLayout() {
+    /* Réinitialise l'imageView dans le layout */
+    func resetLayout() {
         if layoutImage != nil && plusImage != nil {
             layoutImage!.image = nil
             plusImage!.isHidden = false
         }
     }
     
+    /* Renvoi true si une image est définie */
+    func isImageDefine() -> Bool {
+        if layoutImage != nil && layoutImage!.image != nil {
+            return true
+        }
+        return false
+    }
+    
+    /* Récupère l'image telle qu'elle est affichée dans UIImageView
+     La création de l'UIImage en aspect fill prend beaucoup de ressources ‼️ */
     func getLayoutImage() -> UIImage? {
-        return layoutImage?.image
+        print("DEBUG: Récupération de l'image...")
+        if layoutImage != nil {
+            if layoutImage!.frame.width > layoutImage!.frame.height * 2 {
+                print("DEBUG: Création de l'image en aspect fill")
+                let imageSize = layoutImage!.image!.size
+                let imageViewSize = layoutImage!.bounds.size
+                
+                var scale: CGFloat = imageViewSize.width / imageSize.width
+                
+                if imageSize.height * scale < imageViewSize.height {
+                    scale = imageViewSize.height / imageSize.height
+                }
+                
+                let croppedImageSize = CGSize(width: imageViewSize.width/scale, height: imageViewSize.height/scale)
+                
+                let croppedImrect =
+                    CGRect(origin: CGPoint(x: (imageSize.width-croppedImageSize.width)/2.0,
+                                           y: (imageSize.height-croppedImageSize.height)/2.0),
+                           size: croppedImageSize)
+                
+                let renderer = UIGraphicsImageRenderer(size:croppedImageSize)
+                
+                let image = renderer.image { _ in
+                    layoutImage!.image!.draw(at: CGPoint(x:-croppedImrect.origin.x, y:-croppedImrect.origin.y))
+                }
+                print("DEBUG: Image en aspect fill créée avec succès")
+                return image
+            }
+            print("DEBUG: Récupération de l'image de base")
+            return layoutImage!.image
+        }
+        return nil
     }
 }
