@@ -37,6 +37,46 @@
                                     <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
                                 </variation>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QwL-3K-PRL">
+                                <rect key="frame" x="139.5" y="153" width="135.5" height="39.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="anW-aZ-bH5">
+                                        <rect key="frame" x="60.5" y="0.0" width="14" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="O84-JX-Vli">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="14"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="14"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="14" id="rbw-WL-Hk7">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="uya-6M-LoV"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="yMt-t3-Ia5"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="uya-6M-LoV"/>
+                                                <exclude reference="yMt-t3-Ia5"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=compact" image="Arrow Left">
+                                            <mask key="constraints">
+                                                <exclude reference="uya-6M-LoV"/>
+                                                <exclude reference="yMt-t3-Ia5"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=regular" image="Arrow Left"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAW-AZ-6aw">
+                                        <rect key="frame" x="0.0" y="15" width="135.5" height="24.5"/>
+                                        <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <variation key="heightClass=compact-widthClass=compact" alignment="center" axis="vertical" spacing="5"/>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-A5-0zZ" customClass="LayoutView" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="40" y="202.5" width="334" height="334"/>
                                 <subviews>
@@ -130,46 +170,6 @@
                                 <variation key="heightClass=compact-widthClass=compact" axis="vertical"/>
                                 <variation key="heightClass=compact-widthClass=regular" axis="vertical"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QwL-3K-PRL">
-                                <rect key="frame" x="139.5" y="153" width="135.5" height="39.5"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="anW-aZ-bH5">
-                                        <rect key="frame" x="60.5" y="0.0" width="14" height="10"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="10" id="O84-JX-Vli">
-                                                <variation key="heightClass=compact-widthClass=compact" constant="14"/>
-                                                <variation key="heightClass=compact-widthClass=regular" constant="14"/>
-                                            </constraint>
-                                            <constraint firstAttribute="width" constant="14" id="rbw-WL-Hk7">
-                                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
-                                                <variation key="heightClass=compact-widthClass=regular" constant="10"/>
-                                            </constraint>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="uya-6M-LoV"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="yMt-t3-Ia5"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="uya-6M-LoV"/>
-                                                <exclude reference="yMt-t3-Ia5"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact-widthClass=compact" image="Arrow Left">
-                                            <mask key="constraints">
-                                                <exclude reference="uya-6M-LoV"/>
-                                                <exclude reference="yMt-t3-Ia5"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact-widthClass=regular" image="Arrow Left"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAW-AZ-6aw">
-                                        <rect key="frame" x="0.0" y="15" width="135.5" height="24.5"/>
-                                        <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <variation key="heightClass=compact-widthClass=compact" alignment="center" axis="vertical" spacing="5"/>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.71332436799999999" green="0.84245771169999994" blue="0.89417392019999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -236,16 +236,16 @@
                                 <exclude reference="tmH-iU-tRN"/>
                                 <exclude reference="xAa-Dq-jfd"/>
                                 <exclude reference="zvS-L9-YWw"/>
-                                <exclude reference="Fjb-oJ-Khh"/>
-                                <exclude reference="QzT-xF-tng"/>
-                                <exclude reference="dHD-J0-Jfe"/>
-                                <exclude reference="lC6-Ap-RhI"/>
                                 <exclude reference="KOP-qz-SIs"/>
                                 <exclude reference="cf1-we-Sup"/>
                                 <exclude reference="jYZ-rw-jKB"/>
                                 <exclude reference="nMM-J0-e6F"/>
                                 <exclude reference="trP-V1-ZCi"/>
                                 <exclude reference="yvf-Ys-Djs"/>
+                                <exclude reference="Fjb-oJ-Khh"/>
+                                <exclude reference="QzT-xF-tng"/>
+                                <exclude reference="dHD-J0-Jfe"/>
+                                <exclude reference="lC6-Ap-RhI"/>
                                 <exclude reference="6Np-Qj-Nj1"/>
                                 <exclude reference="97A-k8-fqN"/>
                                 <exclude reference="HDd-HA-gsF"/>
@@ -262,15 +262,15 @@
                                 <include reference="iRC-pW-PBy"/>
                                 <exclude reference="r4x-dA-bl3"/>
                                 <include reference="tmH-iU-tRN"/>
-                                <include reference="Fjb-oJ-Khh"/>
-                                <exclude reference="fji-EN-QHp"/>
-                                <include reference="lC6-Ap-RhI"/>
-                                <exclude reference="tsa-Ae-itP"/>
                                 <exclude reference="UnY-Tm-DFC"/>
                                 <exclude reference="VAh-Bu-sa9"/>
                                 <include reference="cf1-we-Sup"/>
                                 <include reference="jYZ-rw-jKB"/>
                                 <include reference="trP-V1-ZCi"/>
+                                <include reference="Fjb-oJ-Khh"/>
+                                <exclude reference="fji-EN-QHp"/>
+                                <include reference="lC6-Ap-RhI"/>
+                                <exclude reference="tsa-Ae-itP"/>
                                 <include reference="6Np-Qj-Nj1"/>
                                 <exclude reference="RIg-zb-QcB"/>
                                 <exclude reference="gmO-Pd-J1l"/>
@@ -287,15 +287,15 @@
                                 <exclude reference="r4x-dA-bl3"/>
                                 <include reference="xAa-Dq-jfd"/>
                                 <include reference="zvS-L9-YWw"/>
-                                <include reference="QzT-xF-tng"/>
-                                <include reference="dHD-J0-Jfe"/>
-                                <exclude reference="fji-EN-QHp"/>
-                                <exclude reference="tsa-Ae-itP"/>
                                 <include reference="KOP-qz-SIs"/>
                                 <exclude reference="UnY-Tm-DFC"/>
                                 <exclude reference="VAh-Bu-sa9"/>
                                 <include reference="nMM-J0-e6F"/>
                                 <include reference="yvf-Ys-Djs"/>
+                                <include reference="QzT-xF-tng"/>
+                                <include reference="dHD-J0-Jfe"/>
+                                <exclude reference="fji-EN-QHp"/>
+                                <exclude reference="tsa-Ae-itP"/>
                                 <exclude reference="97A-k8-fqN"/>
                                 <include reference="HDd-HA-gsF"/>
                                 <exclude reference="RIg-zb-QcB"/>

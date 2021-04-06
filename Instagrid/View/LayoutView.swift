@@ -11,6 +11,8 @@ class LayoutView: UIView {
 
     @IBOutlet private var layoutImages: [LayoutImageView]!
     var actualLayoutType: Int = 0
+    var finalImage: UIImage?
+    var layoutDone: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,6 +51,12 @@ class LayoutView: UIView {
     /* Ajoute l'image à la case correspondante, tag correspond au tag du LayoutImageView selectionné */
     func addImageToLayout(image: UIImage, tag: Int) {
         layoutImages[tag].addImage(image: image)
+        layoutDone = isLayoutDone()
+        if layoutDone {
+            DispatchQueue.main.async {
+                self.finalImage = self.createFinalImage()
+            }
+        }
     }
     
     /* Ajoute les gestures aux LayoutImageView */
@@ -94,35 +102,13 @@ class LayoutView: UIView {
     
     /* Permet de récupérer le CGRect permettant l'assemblage du Layout en fonction de l'image en cours et la taille souhaitée */
     private func getAreaForImage(size: CGFloat, x: Int) -> CGRect {
-        var valX: CGFloat = 0
-        var valY: CGFloat = 0
-        var width: CGFloat = 0
-        var height: CGFloat = 0
         let margin: CGFloat = size / 20
-        if x < layoutImages.count - 1 && layoutImages[x + 1].isHidden == true {
-            valX = margin
-            width = size - (margin * 2)
-            height = (width / 2) - (margin / 2)
-            if x == 0 {
-                valY = margin
-            } else if x == 2 {
-                valY = (size / 2) + (margin / 2)
-            }
-        } else {
-            width = (size / 2) - ((margin / 2) + margin)
-            height = width
-            if x == 0 || x == 2 {
-                valX = margin
-                valY = margin + (CGFloat(x) * ((size / 2 - (margin / 2))/2))
-            } else {
-                valX = (size / 2 + (margin / 2))
-                if x == 1 {
-                    valY = margin
-                } else if x == 3 {
-                    valY = (size / 2) + (margin / 2)
-                }
-            }
-        }
+        let coordinate = layoutImages[x].convert(layoutImages[x].bounds.origin, to: self)
+        let height = (size / 2) - ((margin / 2) + margin)
+        let valX = size * (coordinate.x * 100 / self.frame.width) / 100
+        let valY = size * (coordinate.y * 100 / self.frame.height) / 100
+        let width = layoutImages[x].frame.width > self.frame.width / 2 ? height * 2 + margin : height
+        
         return CGRect(x: valX, y: valY, width: width, height: height)
     }
 }
