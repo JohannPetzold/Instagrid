@@ -13,9 +13,12 @@
 		403169FB2611F2E900D49863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403169F92611F2E900D49863 /* Main.storyboard */; };
 		403169FD2611F2EA00D49863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 403169FC2611F2EA00D49863 /* Assets.xcassets */; };
 		40316A002611F2EA00D49863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403169FE2611F2EA00D49863 /* LaunchScreen.storyboard */; };
+		407E538D261F045F00C42919 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407E538C261F045F00C42919 /* Constants.swift */; };
 		40B8F1C4261B4F6800861DA1 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B8F1C3261B4F6800861DA1 /* ExtensionUIImage.swift */; };
+		40C96D26261E1D58005EF3AF /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C96D25261E1D58005EF3AF /* SpinnerView.swift */; };
+		40C96D29261E2151005EF3AF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C96D28261E2151005EF3AF /* LoadingView.swift */; };
 		40D57C0E2617733C000312F6 /* LayoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D57C0D2617733C000312F6 /* LayoutButton.swift */; };
-		40D57C16261778A2000312F6 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D57C15261778A2000312F6 /* LayoutView.swift */; };
+		40D57C16261778A2000312F6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D57C15261778A2000312F6 /* GridView.swift */; };
 		40D57C1926177916000312F6 /* LayoutImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D57C1826177916000312F6 /* LayoutImageView.swift */; };
 		40EC5A022614D0C900D74F5D /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40EC5A012614D0C900D74F5D /* ThirstySoftRegular.otf */; };
 		40EC5A052614D0CF00D74F5D /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40EC5A042614D0CF00D74F5D /* Delm-Medium.otf */; };
@@ -30,9 +33,12 @@
 		403169FC2611F2EA00D49863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		403169FF2611F2EA00D49863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40316A012611F2EA00D49863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		407E538C261F045F00C42919 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		40B8F1C3261B4F6800861DA1 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
+		40C96D25261E1D58005EF3AF /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		40C96D28261E2151005EF3AF /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		40D57C0D2617733C000312F6 /* LayoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutButton.swift; sourceTree = "<group>"; };
-		40D57C15261778A2000312F6 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
+		40D57C15261778A2000312F6 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		40D57C1826177916000312F6 /* LayoutImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutImageView.swift; sourceTree = "<group>"; };
 		40EC5A012614D0C900D74F5D /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		40EC5A042614D0CF00D74F5D /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
@@ -63,8 +69,10 @@
 				403169F92611F2E900D49863 /* Main.storyboard */,
 				403169FE2611F2EA00D49863 /* LaunchScreen.storyboard */,
 				40D57C0D2617733C000312F6 /* LayoutButton.swift */,
-				40D57C15261778A2000312F6 /* LayoutView.swift */,
+				40D57C15261778A2000312F6 /* GridView.swift */,
 				40D57C1826177916000312F6 /* LayoutImageView.swift */,
+				40C96D28261E2151005EF3AF /* LoadingView.swift */,
+				40C96D25261E1D58005EF3AF /* SpinnerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 			children = (
 				403169F32611F2E900D49863 /* AppDelegate.swift */,
 				403169F52611F2E900D49863 /* SceneDelegate.swift */,
+				407E538C261F045F00C42919 /* Constants.swift */,
 				403169FC2611F2EA00D49863 /* Assets.xcassets */,
 				4013911A2617680A00787953 /* Plist */,
 				40EC5A002614D0BF00D74F5D /* Fonts */,
@@ -216,10 +225,13 @@
 				403169F82611F2E900D49863 /* ViewController.swift in Sources */,
 				40B8F1C4261B4F6800861DA1 /* ExtensionUIImage.swift in Sources */,
 				403169F42611F2E900D49863 /* AppDelegate.swift in Sources */,
-				40D57C16261778A2000312F6 /* LayoutView.swift in Sources */,
+				40D57C16261778A2000312F6 /* GridView.swift in Sources */,
 				40D57C0E2617733C000312F6 /* LayoutButton.swift in Sources */,
+				407E538D261F045F00C42919 /* Constants.swift in Sources */,
 				40D57C1926177916000312F6 /* LayoutImageView.swift in Sources */,
+				40C96D26261E1D58005EF3AF /* SpinnerView.swift in Sources */,
 				403169F62611F2E900D49863 /* SceneDelegate.swift in Sources */,
+				40C96D29261E2151005EF3AF /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

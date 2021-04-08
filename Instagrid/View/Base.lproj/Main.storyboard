@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -21,11 +21,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV0-gj-oGK">
-                                <rect key="frame" x="107" y="74" width="200" height="39"/>
+                                <rect key="frame" x="87.5" y="30" width="200" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="Sqw-pb-SZx"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="yLP-fZ-Lib"/>
@@ -37,8 +37,49 @@
                                     <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
                                 </variation>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Q7-Nc-EkG" customClass="LoadingView" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="20" y="293.5" width="335" height="80"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OPw-jF-FIi">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="80"/>
+                                        <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Yit-ym-53Y" customClass="SpinnerView" customModule="Instagrid" customModuleProvider="target">
+                                                <rect key="frame" x="157.5" y="0.0" width="20" height="40"/>
+                                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </activityIndicatorView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAN-XX-agI">
+                                                <rect key="frame" x="0.0" y="40" width="335" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="rWG-Oi-i4p"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="eAN-XX-agI" secondAttribute="trailing" id="Asr-Hf-2ju"/>
+                                            <constraint firstItem="eAN-XX-agI" firstAttribute="leading" secondItem="OPw-jF-FIi" secondAttribute="leading" id="uxg-Vf-v2B"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="OPw-jF-FIi" firstAttribute="top" secondItem="0Q7-Nc-EkG" secondAttribute="top" id="0oi-XX-tgE"/>
+                                    <constraint firstAttribute="height" constant="80" id="BaB-VY-DO5"/>
+                                    <constraint firstItem="OPw-jF-FIi" firstAttribute="leading" secondItem="0Q7-Nc-EkG" secondAttribute="leading" id="MDh-40-U1e"/>
+                                    <constraint firstAttribute="trailing" secondItem="OPw-jF-FIi" secondAttribute="trailing" id="YLU-Zd-jwC"/>
+                                    <constraint firstAttribute="width" constant="240" id="biD-pN-bks"/>
+                                    <constraint firstAttribute="bottom" secondItem="OPw-jF-FIi" secondAttribute="bottom" id="wjP-86-dnB"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="loadingLabel" destination="eAN-XX-agI" id="Epw-9m-Pgc"/>
+                                    <outlet property="spinner" destination="Yit-ym-53Y" id="RK1-bq-MWP"/>
+                                </connections>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QwL-3K-PRL">
-                                <rect key="frame" x="139.5" y="153" width="135.5" height="39.5"/>
+                                <rect key="frame" x="120" y="109" width="135.5" height="39.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="anW-aZ-bH5">
                                         <rect key="frame" x="60.5" y="0.0" width="14" height="10"/>
@@ -77,34 +118,34 @@
                                 </subviews>
                                 <variation key="heightClass=compact-widthClass=compact" alignment="center" axis="vertical" spacing="5"/>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-A5-0zZ" customClass="LayoutView" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="40" y="202.5" width="334" height="334"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-A5-0zZ" userLabel="GridView" customClass="GridView" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="40" y="158.5" width="295" height="295"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0YL-LK-pe0">
-                                        <rect key="frame" x="15" y="15" width="304" height="304"/>
+                                        <rect key="frame" x="15" y="15" width="265" height="265"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="LW4-ch-BNW">
-                                                <rect key="frame" x="0.0" y="0.0" width="304" height="144.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="265" height="125"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2M-OO-32h" customClass="LayoutImageView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="144.5" height="144.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAC-UH-vyF" customClass="LayoutImageView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="159.5" y="0.0" width="144.5" height="144.5"/>
+                                                        <rect key="frame" x="140" y="0.0" width="125" height="125"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EMk-Fl-LSF">
-                                                <rect key="frame" x="0.0" y="159.5" width="304" height="144.5"/>
+                                                <rect key="frame" x="0.0" y="140" width="265" height="125"/>
                                                 <subviews>
                                                     <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BbB-7m-iAB" customClass="LayoutImageView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="144.5" height="144.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Auc-zC-odp" customClass="LayoutImageView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="159.5" y="0.0" width="144.5" height="144.5"/>
+                                                        <rect key="frame" x="140" y="0.0" width="125" height="125"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
@@ -128,10 +169,10 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EvV-Wj-fxD">
-                                <rect key="frame" x="40" y="724" width="334" height="98"/>
+                                <rect key="frame" x="40" y="542" width="295" height="85"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lm4-aI-wKJ" customClass="LayoutButton" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Lm4-aI-wKJ" secondAttribute="height" multiplier="1:1" id="B6J-kq-ntd"/>
                                         </constraints>
@@ -143,7 +184,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luc-iz-Hew" customClass="LayoutButton" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="118" y="0.0" width="98" height="98"/>
+                                        <rect key="frame" x="105" y="0.0" width="85" height="85"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Luc-iz-Hew" secondAttribute="height" multiplier="1:1" id="azk-BS-oUv"/>
                                         </constraints>
@@ -155,7 +196,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRk-De-Qjs" customClass="LayoutButton" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="236" y="0.0" width="98" height="98"/>
+                                        <rect key="frame" x="210" y="0.0" width="85" height="85"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="HRk-De-Qjs" secondAttribute="height" multiplier="1:1" id="0fI-PG-FYV"/>
                                         </constraints>
@@ -174,6 +215,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.71332436799999999" green="0.84245771169999994" blue="0.89417392019999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="0Q7-Nc-EkG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="17O-kR-jJG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Q7-Nc-EkG" secondAttribute="trailing" constant="20" id="4FB-Yp-GhP"/>
                             <constraint firstItem="eV0-gj-oGK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5u0-uN-mPd"/>
                             <constraint firstItem="EvV-Wj-fxD" firstAttribute="centerY" secondItem="5Iy-A5-0zZ" secondAttribute="centerY" id="6Np-Qj-Nj1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EvV-Wj-fxD" secondAttribute="trailing" constant="40" id="7zT-gg-Xjk">
@@ -215,6 +258,7 @@
                             <constraint firstItem="QwL-3K-PRL" firstAttribute="centerY" secondItem="5Iy-A5-0zZ" secondAttribute="centerY" id="lC6-Ap-RhI"/>
                             <constraint firstItem="EvV-Wj-fxD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5Iy-A5-0zZ" secondAttribute="bottom" constant="20" id="lhr-Ge-frY"/>
                             <constraint firstItem="5Iy-A5-0zZ" firstAttribute="leading" secondItem="QwL-3K-PRL" secondAttribute="trailing" constant="30" id="nMM-J0-e6F"/>
+                            <constraint firstItem="0Q7-Nc-EkG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pOS-hz-411"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EvV-Wj-fxD" secondAttribute="trailing" constant="40" id="r4x-dA-bl3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EvV-Wj-fxD" secondAttribute="bottom" constant="8" id="tmH-iU-tRN">
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
@@ -236,16 +280,16 @@
                                 <exclude reference="tmH-iU-tRN"/>
                                 <exclude reference="xAa-Dq-jfd"/>
                                 <exclude reference="zvS-L9-YWw"/>
+                                <exclude reference="Fjb-oJ-Khh"/>
+                                <exclude reference="QzT-xF-tng"/>
+                                <exclude reference="dHD-J0-Jfe"/>
+                                <exclude reference="lC6-Ap-RhI"/>
                                 <exclude reference="KOP-qz-SIs"/>
                                 <exclude reference="cf1-we-Sup"/>
                                 <exclude reference="jYZ-rw-jKB"/>
                                 <exclude reference="nMM-J0-e6F"/>
                                 <exclude reference="trP-V1-ZCi"/>
                                 <exclude reference="yvf-Ys-Djs"/>
-                                <exclude reference="Fjb-oJ-Khh"/>
-                                <exclude reference="QzT-xF-tng"/>
-                                <exclude reference="dHD-J0-Jfe"/>
-                                <exclude reference="lC6-Ap-RhI"/>
                                 <exclude reference="6Np-Qj-Nj1"/>
                                 <exclude reference="97A-k8-fqN"/>
                                 <exclude reference="HDd-HA-gsF"/>
@@ -262,15 +306,15 @@
                                 <include reference="iRC-pW-PBy"/>
                                 <exclude reference="r4x-dA-bl3"/>
                                 <include reference="tmH-iU-tRN"/>
+                                <include reference="Fjb-oJ-Khh"/>
+                                <exclude reference="fji-EN-QHp"/>
+                                <include reference="lC6-Ap-RhI"/>
+                                <exclude reference="tsa-Ae-itP"/>
                                 <exclude reference="UnY-Tm-DFC"/>
                                 <exclude reference="VAh-Bu-sa9"/>
                                 <include reference="cf1-we-Sup"/>
                                 <include reference="jYZ-rw-jKB"/>
                                 <include reference="trP-V1-ZCi"/>
-                                <include reference="Fjb-oJ-Khh"/>
-                                <exclude reference="fji-EN-QHp"/>
-                                <include reference="lC6-Ap-RhI"/>
-                                <exclude reference="tsa-Ae-itP"/>
                                 <include reference="6Np-Qj-Nj1"/>
                                 <exclude reference="RIg-zb-QcB"/>
                                 <exclude reference="gmO-Pd-J1l"/>
@@ -287,15 +331,15 @@
                                 <exclude reference="r4x-dA-bl3"/>
                                 <include reference="xAa-Dq-jfd"/>
                                 <include reference="zvS-L9-YWw"/>
+                                <include reference="QzT-xF-tng"/>
+                                <include reference="dHD-J0-Jfe"/>
+                                <exclude reference="fji-EN-QHp"/>
+                                <exclude reference="tsa-Ae-itP"/>
                                 <include reference="KOP-qz-SIs"/>
                                 <exclude reference="UnY-Tm-DFC"/>
                                 <exclude reference="VAh-Bu-sa9"/>
                                 <include reference="nMM-J0-e6F"/>
                                 <include reference="yvf-Ys-Djs"/>
-                                <include reference="QzT-xF-tng"/>
-                                <include reference="dHD-J0-Jfe"/>
-                                <exclude reference="fji-EN-QHp"/>
-                                <exclude reference="tsa-Ae-itP"/>
                                 <exclude reference="97A-k8-fqN"/>
                                 <include reference="HDd-HA-gsF"/>
                                 <exclude reference="RIg-zb-QcB"/>
@@ -305,7 +349,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="layoutView" destination="5Iy-A5-0zZ" id="4SL-Mu-tkK"/>
+                        <outlet property="gridView" destination="5Iy-A5-0zZ" id="nwW-0E-mNu"/>
+                        <outlet property="loadingView" destination="0Q7-Nc-EkG" id="nPJ-wJ-Wgf"/>
                         <outletCollection property="layoutButtons" destination="Lm4-aI-wKJ" collectionClass="NSMutableArray" id="BsX-Bw-qM4"/>
                         <outletCollection property="layoutButtons" destination="Luc-iz-Hew" collectionClass="NSMutableArray" id="GEr-5e-ct8"/>
                         <outletCollection property="layoutButtons" destination="HRk-De-Qjs" collectionClass="NSMutableArray" id="ANk-sV-gye"/>

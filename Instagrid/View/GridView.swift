@@ -7,25 +7,22 @@
 
 import UIKit
 
-class LayoutView: UIView {
+class GridView: UIView {
 
+    // MARK: - Outlets
     @IBOutlet private var layoutImages: [LayoutImageView]!
+    
+    // MARK: - Properties
     var actualLayoutType: Int = 0
-    var finalImage: UIImage?
     var layoutDone: Bool = false
     
+    // MARK: - Methods
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setup()
-    }
-    
-    private func setup() {
-        
     }
 
     /* Change la disposition du Layout en fonction du tag (bouton appuyé) */
@@ -51,12 +48,6 @@ class LayoutView: UIView {
     /* Ajoute l'image à la case correspondante, tag correspond au tag du LayoutImageView selectionné */
     func addImageToLayout(image: UIImage, tag: Int) {
         layoutImages[tag].addImage(image: image)
-        layoutDone = isLayoutDone()
-        if layoutDone {
-            DispatchQueue.main.async {
-                self.finalImage = self.createFinalImage()
-            }
-        }
     }
     
     /* Ajoute les gestures aux LayoutImageView */
@@ -79,36 +70,46 @@ class LayoutView: UIView {
     }
     
     /* Crée le Layout final en assemblant les images présentent dans une UIImage */
-    func createFinalImage() -> UIImage {
-        let size: CGFloat = 1024
-        var finalImage = UIImage.createBackgroundLayout(size: size)
+    func createFinalImage(completionHandler: @escaping (UIImage?) -> Void) {
+        // Pour pouvoir DispatchQueue en background
+        var isImageHidden: [Bool] = []
+        var imagesArea: [CGRect?] = []
         for x in 0..<layoutImages.count {
+            isImageHidden.append(layoutImages[x].isHidden)
             if layoutImages[x].isHidden == false {
-                print("DEBUG: Traitement de l'image \(x + 1) du Layout")
-                if let layoutImage = layoutImages[x].getLayoutImage() {
-                    print("DEBUG: Récupération de l'image réussi")
-                    print("DEBUG: Définition de la zone pour placer l'image dans le Layout")
-                    let area = getAreaForImage(size: size, x: x)
-                    print("DEBUG: Zone récupérée")
-                    print("DEBUG: Assemblage de l'image \(x + 1) avec le Layout")
-                    finalImage = finalImage.mergeWith(topImage: layoutImage, topImageArea: area)
-                    print("DEBUG: Image \(x + 1) assemblée avec succès\n")
-                }
+                imagesArea.append(getAreaForImage(x: x))
+            } else {
+                imagesArea.append(nil)
             }
         }
-        print("DEBUG: Toutes les images ont été assemblées")
-        return finalImage
+        
+        DispatchQueue.global(qos: .background).async {
+            var finalImage = UIImage.createBackgroundLayout()
+            for x in 0..<self.layoutImages.count {
+                if isImageHidden[x] == false {
+                    print("DEBUG: Traitement de l'image \(x + 1) du Layout")
+                    if let layoutImage = self.layoutImages[x].getLayoutImage() {
+                        print("DEBUG: Récupération de l'image réussi")
+                        print("DEBUG: Assemblage de l'image \(x + 1) avec le Layout")
+                        finalImage = finalImage.mergeWith(topImage: layoutImage, topImageArea: imagesArea[x]!)
+                        print("DEBUG: Image \(x + 1) assemblée avec succès\n")
+                    }
+                }
+            }
+            print("DEBUG: Toutes les images ont été assemblées")
+            completionHandler(finalImage)
+        }
     }
     
-    /* Permet de récupérer le CGRect permettant l'assemblage du Layout en fonction de l'image en cours et la taille souhaitée */
-    private func getAreaForImage(size: CGFloat, x: Int) -> CGRect {
-        let margin: CGFloat = size / 20
+    /* Permet de récupérer le CGRect permettant l'assemblage du Layout en fonction de l'image en cours */
+    private func getAreaForImage(x: Int) -> CGRect {
+        let margin: CGFloat = GRID_SIZE / 20
         let coordinate = layoutImages[x].convert(layoutImages[x].bounds.origin, to: self)
-        let height = (size / 2) - ((margin / 2) + margin)
-        let valX = size * (coordinate.x * 100 / self.frame.width) / 100
-        let valY = size * (coordinate.y * 100 / self.frame.height) / 100
+        let height = (GRID_SIZE / 2) - ((margin / 2) + margin)
+        let valX = GRID_SIZE * (coordinate.x * 100 / self.frame.width) / 100
+        let valY = GRID_SIZE * (coordinate.y * 100 / self.frame.height) / 100
         let width = layoutImages[x].frame.width > self.frame.width / 2 ? height * 2 + margin : height
-        
+
         return CGRect(x: valX, y: valY, width: width, height: height)
     }
 }

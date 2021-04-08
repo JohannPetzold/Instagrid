@@ -10,6 +10,7 @@ import UIKit
 
 extension UIImage {
     
+    /* Assemble deux images ; Prend en paramètre l'image du dessus et son emplacement */
     func mergeWith(topImage: UIImage, topImageArea: CGRect) -> UIImage {
         let bottomImage = self
         
@@ -24,17 +25,18 @@ extension UIImage {
         return mergedImage!
     }
     
-    static func createBackgroundLayout(size: CGFloat) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: size, height: size))
-        let background = renderer.image { ctx in
+    /* Crée le background du Layout avec la bonne couleur */
+    static func createBackgroundLayout() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: GRID_SIZE, height: GRID_SIZE))
+        let background = renderer.image { imageContext in
             if let color = UIColor(named: "BackgroundLayout")?.cgColor {
-                ctx.cgContext.setFillColor(color)
+                imageContext.cgContext.setFillColor(color)
             } else {
-                ctx.cgContext.setFillColor(UIColor.blue.cgColor)
+                imageContext.cgContext.setFillColor(UIColor.blue.cgColor)
             }
-            let rectangle = CGRect(x: 0, y: 0, width: size, height: size)
-            ctx.cgContext.addRect(rectangle)
-            ctx.cgContext.drawPath(using: .fill)
+            let rectangle = CGRect(x: 0, y: 0, width: GRID_SIZE, height: GRID_SIZE)
+            imageContext.cgContext.addRect(rectangle)
+            imageContext.cgContext.drawPath(using: .fill)
         }
         return background
     }
