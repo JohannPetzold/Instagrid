@@ -83,22 +83,28 @@ class GridView: UIView {
             }
         }
         
-        DispatchQueue.global(qos: .background).async {
-            var finalImage = UIImage.createBackgroundLayout()
-            for x in 0..<self.layoutImages.count {
-                if isImageHidden[x] == false {
-                    print("DEBUG: Traitement de l'image \(x + 1) du Layout")
-                    if let layoutImage = self.layoutImages[x].getLayoutImage() {
-                        print("DEBUG: Récupération de l'image réussi")
-                        print("DEBUG: Assemblage de l'image \(x + 1) avec le Layout")
-                        finalImage = finalImage.mergeWith(topImage: layoutImage, topImageArea: imagesArea[x]!)
-                        print("DEBUG: Image \(x + 1) assemblée avec succès\n")
-                    }
-                }
-            }
-            print("DEBUG: Toutes les images ont été assemblées")
-            completionHandler(finalImage)
+        // Ces lignes suffisent à créer l'image souhaitée
+        let renderer = UIGraphicsImageRenderer(size: self.bounds.size)
+        let image = renderer.image { ctx in
+            self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
         }
+        completionHandler(image)
+//        DispatchQueue.global(qos: .background).async {
+//            var finalImage = UIImage.createBackgroundLayout()
+//            for x in 0..<self.layoutImages.count {
+//                if isImageHidden[x] == false {
+//                    print("DEBUG: Traitement de l'image \(x + 1) du Layout")
+//                    if let layoutImage = self.layoutImages[x].getLayoutImage() {
+//                        print("DEBUG: Récupération de l'image réussi")
+//                        print("DEBUG: Assemblage de l'image \(x + 1) avec le Layout")
+//                        finalImage = finalImage.mergeWith(topImage: layoutImage, topImageArea: imagesArea[x]!)
+//                        print("DEBUG: Image \(x + 1) assemblée avec succès\n")
+//                    }
+//                }
+//            }
+//            print("DEBUG: Toutes les images ont été assemblées")
+//            completionHandler(finalImage)
+//        }
     }
     
     /* Permet de récupérer le CGRect permettant l'assemblage du Layout en fonction de l'image en cours */

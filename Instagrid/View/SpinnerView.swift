@@ -22,6 +22,11 @@ class SpinnerView: UIActivityIndicatorView {
     
     private func setup() {
         self.isHidden = false
+//        if #available(iOS 13.0, *) {
+//            self.style = .large
+//        } else {
+//            self.style = .whiteLarge
+//        }
     }
     
     func start() {

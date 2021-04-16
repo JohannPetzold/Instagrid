@@ -34,6 +34,18 @@ class LoadingView: UIView {
         fadeIn()
     }
     
+    /* Arrêt du chargement et animation de fin */
+    func stopLoading() {
+        spinner.stop()
+        loadingInProgress = false
+        self.layer.removeAllAnimations()
+        loadingLabel.alpha = 1
+        loadingLabel.text = "Done!"
+        UIView.animate(withDuration: 2) {
+            self.loadingLabel.alpha = 0
+        }
+    }
+    
     /* Animation d'apparition */
     private func fadeIn() {
         loadingLabel.alpha = 0
@@ -58,21 +70,9 @@ class LoadingView: UIView {
             }
         }
     }
-
-    /* Arrêt du chargement et animation de fin */
-    func stopLoading() {
-        spinner.stop()
-        loadingInProgress = false
-        self.layer.removeAllAnimations()
-        loadingLabel.alpha = 1
-        loadingLabel.text = "Done!"
-        UIView.animate(withDuration: 2) {
-            self.loadingLabel.alpha = 0
-        }
-    }
     
     /* Définition aléatoire du text de chargement */
-    func randomLabel() {
+    private func randomLabel() {
         var newText: String = loadingLabel.text!
         var state: Int
         while loadingLabel.text == newText {

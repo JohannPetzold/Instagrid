@@ -80,7 +80,6 @@
 		40139119261767E800787953 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				40B8F1C2261B4F5700861DA1 /* Extension */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +130,7 @@
 		40EC59FF2614D0B800D74F5D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				40B8F1C2261B4F5700861DA1 /* Extension */,
 				403169F32611F2E900D49863 /* AppDelegate.swift */,
 				403169F52611F2E900D49863 /* SceneDelegate.swift */,
 				407E538C261F045F00C42919 /* Constants.swift */,
